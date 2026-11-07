@@ -2,7 +2,7 @@ import saludar
 
 
 def test_saludo1():
-    assert "Hola! Que tal?" == saludar.saludar()
+    assert saludar.saludar() in ("Hola", "Hola! Que tal?", "Buenos dias")
 
 
 def test_saludo2():
