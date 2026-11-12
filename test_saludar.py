@@ -1,13 +1,13 @@
 import saludar
 
 
-def test_saludo1():
-    assert saludar.saludar() in ("Hola", "Hola! Que tal?", "Buenos dias")
+class TestSaludar:
 
+    def test_saludo1(self):
+        assert "Hola" == saludar.saludo1()
 
-def test_saludo2():
-    pass
+    def test_saludo2(self):
+        assert "Buenos días" == saludar.saludo2()
 
-
-def test_saludo3():
-    pass
+    def test_saludo3(self):
+        assert "Hola, ¿Qué tal?" == saludar.saludo3()
