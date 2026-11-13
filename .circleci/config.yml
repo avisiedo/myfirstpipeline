@@ -31,6 +31,6 @@ jobs:
           name: Build and Push Docker
           command: |
             source venv/bin/activate
-            docker build -t poc/$IMAGE_NAME:$TAG .
+            docker build -t avisiedo/$IMAGE_NAME:$TAG .
             echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
-            docker push ideaslocas/$IMAGE_NAME:$TAG
+            docker push avisiedo/$IMAGE_NAME:$TAG
