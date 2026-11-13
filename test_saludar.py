@@ -11,3 +11,6 @@ class TestSaludar:
 
     def test_saludo3(self):
         assert "Hola, ¿Qué tal?" == saludar.saludo3()
+
+    def test_saludo4(self):
+        assert "¿Como te encuentras hoy?" == saludar.saludo4()
