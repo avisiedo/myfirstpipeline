@@ -53,6 +53,7 @@ jobs:
     name: Construir y subir imagen a Docker.io
     needs: ci # Asegura que este paso SOLO ocurra si el job 'ci' tiene éxito
     # Se ejecuta en cada push a CUALQUIER rama (ignora los Pull Requests para evitar builds duplicados)
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       -
