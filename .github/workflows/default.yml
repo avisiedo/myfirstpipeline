@@ -20,20 +20,27 @@ jobs:
       - name: Descargar código del repositorio
         uses: actions/checkout@v4
 
+      # - name: Configurar Python
+      #   uses: actions/setup-python@v5
+      #   with:
+      #     python-version: "3.9"  # Ajusta a la versión que uses
+      #     cache: "pip"           # Guarda en caché las dependencias para acelerar el flujo
       - name: Configurar Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.9"  # Ajusta a la versión que uses
-          cache: "pip"           # Guarda en caché las dependencias para acelerar el flujo
+        run: |
+          apt-get install uv
+          uv venv --python 3.9
+          source .venv/bin/activate
+          python3 -m pip install -U pip
 
       - name: Instalar dependencias
         run: |
-          python -m pip install --upgrade pip
-          pip install pytest
-          if [ -f "requirements.txt" ]; then pip install -r requirements.txt; fi
+          source .venv/bin/activate
+          python3 -m pip install pytest
+          if [ -f "requirements.txt" ]; then python3 -m pip install -r requirements.txt; fi
 
       - name: Ejecutar Pytest
         run: |
+          source .venv/bin/activate
           python3 -m pytest -v
 
   # 2. JOB DE CONSTRUCCIÓN Y DESPLIEGUE EN DOCKER HUB
