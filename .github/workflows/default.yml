@@ -36,8 +36,11 @@ jobs:
       - name: Instalar dependencias
         run: |
           source .venv/bin/activate
-          python3 -m pip install pytest
-          if [ -f "requirements.txt" ]; then python3 -m pip install -r requirements.txt; fi
+          ~/.local/bin/uv pip install pytest
+          if [ -f "requirements.txt" ]; 
+          then 
+              ~/.local/bin/uv pip install -r requirements.txt;
+          fi
 
       - name: Ejecutar Pytest
         run: |
