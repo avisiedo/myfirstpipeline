@@ -27,10 +27,11 @@ jobs:
       #     cache: "pip"           # Guarda en caché las dependencias para acelerar el flujo
       - name: Configurar Python
         run: |
-          sudo apt-get install -y uv
-          uv venv --python 3.9
+          # https://docs.astral.sh/uv/getting-started/installation/
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          ~/.local/bin/uv venv --python 3.9
           source .venv/bin/activate
-          python3 -m pip install -U pip
+          pip install -U pip
 
       - name: Instalar dependencias
         run: |
