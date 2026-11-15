@@ -1,8 +1,8 @@
-FROM alpine:3.12
+# https://docs.docker.com/reference/dockerfile/
+FROM docker.io/python:3.9
 
-WORKDIR /myfirstpipeline
+COPY saludar.py saludar.py
+COPY test_saludar.py test_saludar.py
 
-ADD . /myfirstpipeline
-
-RUN apk add python3
+ENTRYPOINT ["python3", "-m", "saludar"]
 
