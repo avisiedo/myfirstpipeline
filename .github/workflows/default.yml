@@ -2,9 +2,9 @@ name: CI/CD - Python Tests y Docker Build
 
 on:
   push:
-    # Se activará con un push en CUALQUIER rama
+    branches:
+      - main
   pull_request:
-    # Se activará con un PR en CUALQUIER rama
 
 env:
   # Cambia esto por tu usuario de Docker Hub y el nombre de tu imagen
