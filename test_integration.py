@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
-import pytest
-
-
 import subprocess
-import unittest
 
 
 def test_integracion():
